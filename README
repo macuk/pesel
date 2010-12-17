@@ -1,0 +1,60 @@
+Pesel
+=====
+
+This gem provides the Pesel class to check the PESEL number
+and get information about its owner.
+
+PESEL (Polish Powszechny Elektroniczny System Ewidencji Ludności,
+Universal Electronic System for Registration of the Population)
+is the national identification number used in Poland since 1979.
+
+The PESEL number is mandatory for all permanent residents of Poland
+and for temporary residents living in Poland for over 2 months.
+Applicants for Polish citizenship must request a PESEL number together
+with their passport application.
+
+[http://en.wikipedia.org/wiki/PESEL]
+
+Interesting information about PESEL (in Polish language):
+http://wipos.p.lodz.pl/zylla/ut/pesel.html
+
+Installation
+============
+
+gem install pesel
+
+Example
+=======
+
+Standalone class:
+
+  pesel = Pesel.new('75120804355')
+  pesel.valid?      # true
+  pesel.birth_date  # Date object with '1975-12-08' date
+  pesel.female?     # false
+  pesel.male?       # true
+  pesel.gender      # :male
+  pesel.number      # '75120804355'
+
+  pesel = Pesel.new('00000000000')
+  pesel.valid?      # false
+  pesel.birth_date  # raises Pesel::NumberInvalid exception
+  pesel.female?     # raises Pesel::NumberInvalid exception
+  pesel.male?       # raises Pesel::NumberInvalid exception
+  pesel.gender      # raises Pesel::NumberInvalid exception
+  pesel.number      # raises Pesel::NumberInvalid exception
+
+ActiveRecord:
+
+  class Person < ActiveRecord::Base
+    validate :check_pesel
+
+    private
+      def check_pesel
+        p = Pesel.new(pesel)
+        errors[:pesel] << 'Invalid PESEL number' unless p.valid?
+      end
+  end
+
+
+Copyright (c) 2009-2010 Piotr Macuk, released under the MIT license

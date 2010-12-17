@@ -1,16 +1,16 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "pesel/version"
+require "version"
 
 Gem::Specification.new do |s|
   s.name        = "pesel"
   s.version     = Pesel::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["TODO: Write your name"]
-  s.email       = ["TODO: Write your email address"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.authors     = ["Piotr Macuk"]
+  s.email       = ["piotr@macuk.pl"]
+  s.homepage    = "http://github.com/macuk/pesel"
+  s.summary     = %q{PESEL number manipulation}
+  s.description = %q{Check PESEL number and get information about its owner}
 
   s.rubyforge_project = "pesel"
 
