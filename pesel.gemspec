@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Piotr Macuk"]
   s.email       = ["piotr@macuk.pl"]
   s.homepage    = "http://github.com/macuk/pesel"
-  s.summary     = %q{PESEL number manipulation}
-  s.description = %q{Check PESEL number and get information about its owner}
+  s.summary     = %q{PESEL validation and information}
+  s.description = %q{Pesel class to check PESEL number and get information about its owner}
 
   s.rubyforge_project = "pesel"
 

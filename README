@@ -28,6 +28,8 @@ Example
 
 Standalone class:
 
+  require 'pesel'
+
   pesel = Pesel.new('75120804355')
   pesel.valid?      # true
   pesel.birth_date  # Date object with '1975-12-08' date
