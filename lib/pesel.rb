@@ -1,3 +1,5 @@
+require 'pesel_validator'
+
 class Pesel
   class NumberInvalid < Exception; end
 
