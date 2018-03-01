@@ -24,12 +24,15 @@ http://github.com/macuk/pesel-plugin
 Installation
 ============
 
-gem install pesel
+`gem install pesel`
 
 Example
 =======
 
-Standalone class:
+
+### Standalone class:
+
+```ruby
 
   require 'pesel'
 
@@ -48,18 +51,16 @@ Standalone class:
   pesel.male?       # raises Pesel::NumberInvalid exception
   pesel.gender      # raises Pesel::NumberInvalid exception
   pesel.number      # raises Pesel::NumberInvalid exception
+```
 
-ActiveRecord:
+### ActiveRecord:
+
+```ruby
 
   class Person < ActiveRecord::Base
-    validate :check_pesel
-
-    private
-      def check_pesel
-        p = Pesel.new(pesel)
-        errors[:pesel] << 'Invalid PESEL number' unless p.valid?
-      end
+    validate :pesel, pesel: true
   end
+```
 
 
 Copyright (c) 2009-2010 Piotr Macuk, released under the MIT license
